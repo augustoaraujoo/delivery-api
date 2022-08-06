@@ -4,11 +4,7 @@ const PORT = process.env.PORT || 6060;
 const app = express();
 app.use(express.json());
 app.get('/', (req, res) => {
-<<<<<<< HEAD
     res.send(' World!');
-=======
-    res.send('https://devcenter.heroku.com/articles/getting-started-with-nodejs');
->>>>>>> 5a2ea4149a03abcd64fadd964ce39e5780220b18
 })
 app.listen(PORT, () => {
     console.log(`
