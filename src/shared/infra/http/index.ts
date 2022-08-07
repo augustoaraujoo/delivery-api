@@ -1,6 +1,14 @@
 import { app } from './app';
 const PORT = process.env.PORT || 6060;
 
+<<<<<<< HEAD:src/index.ts
+const app = express();
+app.use(express.json());
+app.get('/', (req, res) => {
+    res.send(' World!');
+})
+=======
+>>>>>>> 71cd29ba6fb2813ac88d966107a537d51da0fab1:src/shared/infra/http/index.ts
 app.listen(PORT, () => {
     console.log(`
 
