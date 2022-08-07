@@ -1,26 +1,6 @@
-import express from 'express'
+import { app } from './app';
 const PORT = process.env.PORT || 6060;
-import { Prisma, PrismaClient } from '@prisma/client'
-const app = express();
-app.use(express.json());
-const prisma = new PrismaClient();
 
-
-
-app.get('/', async(req, res) => {
-    const RESULT = await prisma.deliveryman.findMany();
-    res.json(RESULT);
-})
-app.post('/delivery', async(req, res) => {
-    const { username, password } = req.body;
-    const createDelivery = await prisma.deliveryman.create({
-        data: {
-            username,
-            password
-        }
-    });
-    res.json(createDelivery);
-})
 app.listen(PORT, () => {
     console.log(`
 

@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "node dist/index.js",
-    "build": "tsc"
+    "start": "node dist/shared/infra/http/index.js",
+    "build": "tsc",
+    "dev": "ts-node-dev --exit-child --transpile-only --ignore-watch node_modules src/shared/infra/http/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +20,7 @@
     "typescript": "^4.7.4"
   },
   "engines": {
-    "node":"16.x"
+    "node": "16.x"
   },
   "dependencies": {
     "@prisma/client": "^4.1.1",
