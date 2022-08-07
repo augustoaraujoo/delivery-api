@@ -11,9 +11,7 @@ class CreateClientUseCase {
     async execute({ username, password }: IRequest): Promise<any> {
         const clientExists = await prisma.clients.findFirst({
             where: {
-                username: {
-                    mode: "insensitive",
-                }
+                username
             }
         })
         if (clientExists) {
