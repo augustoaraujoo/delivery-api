@@ -6,10 +6,12 @@ class CreateClientController {
 
         const { username, password } = req.body;
         const createClientUseCase = new CreateClientUseCase();
-        const result = createClientUseCase.execute({
+        const result = await createClientUseCase.execute({
             username,
             password
         })
+        console.log(result);
+        
         return res.json(result).status(201);
 
     }

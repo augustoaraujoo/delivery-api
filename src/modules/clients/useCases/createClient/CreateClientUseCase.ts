@@ -1,13 +1,8 @@
 import { prisma } from "../../../../database/prismaClient";
 import { hash } from "bcrypt";
-interface IRequest {
-    username: string;
-    password: string;
-}
+import { IRequest } from "../../../../interface/Interface";
 
 class CreateClientUseCase {
-    // constructor(private createClientUseCase: IcreateClientUseCase) { }
-
     async execute({ username, password }: IRequest): Promise<any> {
         const clientExists = await prisma.clients.findFirst({
             where: {
