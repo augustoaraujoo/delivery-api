@@ -4,6 +4,7 @@ import { AuthenticateClientController } from "../../../../modules/account/auth/A
 const authRoute = Router();
 const authClientController = new AuthenticateClientController();
 
+
 authRoute.post("/createAuth", authClientController.handle)
 
 export { authRoute };
