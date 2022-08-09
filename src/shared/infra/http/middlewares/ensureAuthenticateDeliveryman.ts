@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 interface IPayload {
-    sub:string;
+    sub: string;
 }
-export async function ensureAuthenticateClient(request: Request, response: Response, nextFunction: NextFunction) {
+export async function ensureAuthenticateDeliveryman(request: Request, response: Response, nextFunction: NextFunction) {
     const authHeader = request.headers.authorization;
     if (!authHeader) {
         return response.status(401).json({ error: "Token missing" });
@@ -11,10 +11,10 @@ export async function ensureAuthenticateClient(request: Request, response: Respo
 
     const [, token] = authHeader.split(" ");
     try {
-        const { sub } = verify(token, `${process.env.JWT_KEY}`) as IPayload;
-        
+        const { sub } = verify(token, `${process.env.JWT_KEY_DELIVERYMAN}`) as IPayload;
+
         // cliente atual autenticado
-        request.id_client = sub;
+        request.id_deliveryman = sub;
 
         return nextFunction();
     } catch (error) {
