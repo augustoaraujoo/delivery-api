@@ -7,7 +7,7 @@ import { routes } from './routes';
 
 const app = express();
 app.use(express.json());
-app.use("/", swaggerUI.serve, swaggerUI.setup(swaggerFile));
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
 app.use(routes)
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof Error) {
