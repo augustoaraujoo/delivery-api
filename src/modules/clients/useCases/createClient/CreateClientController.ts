@@ -1,11 +1,13 @@
 import { Response, Request } from 'express';
+import { ClientRepository } from '../../repositories/ClientRepository';
 import { CreateClientUseCase } from './CreateClientUseCase';
 
 class CreateClientController {
     async handle(req: Request, res: Response): Promise<Response> {
 
         const { username, password } = req.body;
-        const createClientUseCase = new CreateClientUseCase();
+        const clientRepository = new ClientRepository();
+        const createClientUseCase = new CreateClientUseCase(clientRepository);
         const result = await createClientUseCase.execute({
             username,
             password
