@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import { ClientRepository } from '../../repositories/ClientRepository';
+import { ClientRepository } from '../../repositories/prismaRepositoryMethods/ClientRepository';
 import { CreateClientUseCase } from './CreateClientUseCase';
 
 class CreateClientController {

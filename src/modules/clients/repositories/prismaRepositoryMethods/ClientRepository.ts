@@ -1,7 +1,7 @@
 import { hash } from "bcrypt";
-import { prisma } from "../../../database/prismaClient";
-import { IClientDTO } from "../dtos/IClientDTO";
-import { IClientRepository } from "./IClientRepository";
+import { prisma } from "../../../../database/prismaClient";
+import { IClientDTO } from "../../dtos/IClientDTO";
+import { IClientRepository } from "../IClientRepository";
 
 class ClientRepository implements IClientRepository {
 

@@ -1,5 +1,5 @@
 import { IRequest } from "../../../../interface/Interface";
-import { ClientRepository } from "../../repositories/ClientRepository";
+import { ClientRepository } from "../../repositories/prismaRepositoryMethods/ClientRepository";
 
 class CreateClientUseCase {
     constructor(private clientRepository: ClientRepository) { }
