@@ -1,4 +1,5 @@
 import { Response, Request } from 'express';
+import { DeliverymanRepository } from '../../repositories/prismaRepository/DeliverymanRepository';
 import { UpdateDeliverymanUseCase } from '../updateDeliveryman/UpdateDeliverymanUseCase';
 
 class UpdateDeliverymanController {
@@ -6,7 +7,8 @@ class UpdateDeliverymanController {
 
         const { id_deliveryman } = req;
         const { id: id_delivery } = req.params;
-        const updateDeliverymanUseCase = new UpdateDeliverymanUseCase();
+        const deliverymanRepository = new DeliverymanRepository()
+        const updateDeliverymanUseCase = new UpdateDeliverymanUseCase(deliverymanRepository);
         const result = await updateDeliverymanUseCase.execute({ id_delivery, id_deliveryman });
         return res.json(result).status(200);
 

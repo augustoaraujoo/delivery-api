@@ -1,4 +1,5 @@
-import { prisma } from "../../../../database/prismaClient";
+import { DeliverymanRepository } from "../../repositories/prismaRepository/DeliverymanRepository";
+
 
 interface IRequest {
     id_delivery: string;
@@ -6,16 +7,9 @@ interface IRequest {
 }
 
 class UpdateDeliverymanUseCase {
-
+    constructor(private deliverymanRepository: DeliverymanRepository) { }
     async execute({ id_delivery, id_deliveryman }: IRequest): Promise<any> {
-        const result = await prisma.deliveries.update({
-            where: {
-                id: id_delivery
-            },
-            data: {
-                id_deliveryman
-            }
-        })
+        const result = await this.deliverymanRepository.update({id_delivery, id_deliveryman});
         return result;
     }
 }
