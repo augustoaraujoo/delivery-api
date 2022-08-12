@@ -19,6 +19,7 @@ class Delivery {
 /*           */
 
 class DeliverymanRepositoryInMemory implements IDeliverymanRepository {
+
     //entities
     deliveryman: Deliveryman[] = [];
     delivery: Delivery[] = [];
@@ -39,12 +40,20 @@ class DeliverymanRepositoryInMemory implements IDeliverymanRepository {
         const delivery = new Delivery()
         const result = await this.delivery.find(delivery => delivery.id === id_delivery);
         if (result) {
-            Object.assign(result, { id:id_delivery, id_deliveryman: id_deliveryman });
+            Object.assign(result, { id: id_delivery, id_deliveryman: id_deliveryman });
             this.delivery.push(result);
         }
         return delivery;
     }
+    async updateEndDate({ id_delivery, id_deliveryman }: IUpdateDeliveryDTO): Promise<any> {
+        const result = this.delivery.find(delivery => delivery.id === id_delivery);
+        if (result) {
+            Object.assign(result, { id: id_delivery, id_deliveryman: id_deliveryman, end_date: new Date() });
+            this.delivery.push(result);
+        }
 
+        return result
+    }
 }
 
 export { DeliverymanRepositoryInMemory }

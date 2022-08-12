@@ -18,13 +18,6 @@ app.listen(PORT, () => {
     yarn add dotenv
     tsconfig.json é padrão no prisma.io
 
-
-    set DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres
-
-    set shadowDatabaseUrl=postgres://postgres:postgres@localhost:5432/postgres_shadow
-
-
-
     [create heroku] = cli
     [create db]
     se der pau no git ![remote rejected] master->master
