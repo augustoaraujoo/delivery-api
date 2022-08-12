@@ -1,9 +1,5 @@
 require('dotenv').config();
 import express, { NextFunction, Request, Response } from 'express'
-// import swaggerUI from 'swagger-ui-express'
-// import swaggerFile from '../../../swagger.json';
-// app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerFile));
-// erro ao rodar na produção swagger
 import 'express-async-errors';
 import { routes } from './routes';
 

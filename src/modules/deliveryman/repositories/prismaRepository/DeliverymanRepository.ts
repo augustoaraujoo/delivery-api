@@ -16,7 +16,10 @@ class DeliverymanRepository implements IDeliverymanRepository {
     async findByUsername(username: string): Promise<any> {
         const findDeliveryman = await prisma.deliveryman.findFirst({
             where: {
-                username
+                username:{
+                    equals: username,
+                    mode: "insensitive"
+                }
             }
         });
         return findDeliveryman;

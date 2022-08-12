@@ -20,7 +20,10 @@ class ClientRepository implements IClientRepository {
     async findFirst(username: string): Promise<any> {
         const client = await prisma.clients.findFirst({
             where: {
-                username
+                username:{
+                    equals: username,
+                    mode: "insensitive"
+                }
             }
         })
         return client;
