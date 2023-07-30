@@ -4,7 +4,7 @@ import { IClientDTO } from "../../dtos/IClientDTO";
 import { IClientRepository } from "../IClientRepository";
 
 class ClientRepository implements IClientRepository {
-
+//basta trocar aqui oORM caso haja algum erro, basta respeitar a minha implementação do ICLIENTREPOSITORY
     async create({ password, username }: IClientDTO): Promise<any> {
         const hashedPassword = await hash(password, 10);
 
