@@ -5,7 +5,9 @@ class CreateClientUseCase {
     constructor(private clientRepository: ClientRepository) { }
 
     async execute({ username, password }: IRequest): Promise<any> {
-    // não será necessário trocar nada aqui caso haja uma TROCA DE ORM graças a interface que implementa e respeita o InterfaceRepository
+    /*não será necessário trocar nada aqui caso haja uma TROCA DE ORM graças a interface que implementa e respeita o InterfaceRepository
+        não preciso mudar o nome dos métodos pois ele respeita minha interfaceRepository tbm
+    */
         const clientExists = await this.clientRepository.findFirst(username);
 
         if (clientExists) {
