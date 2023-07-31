@@ -2,6 +2,7 @@ import { IRequest } from "../../../../interface/Interface";
 import { ClientRepository } from "../../repositories/prismaRepositoryMethods/ClientRepository";
 
 class CreateClientUseCase {
+    // trocamos aqui caso eu queira trabalhar com o ClientRepositoryInMemory que seria outro 'bd'
     constructor(private clientRepository: ClientRepository) { }
 
     async execute({ username, password }: IRequest): Promise<any> {
